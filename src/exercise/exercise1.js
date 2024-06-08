@@ -1,3 +1,16 @@
+function sortedData(filteredData) {
+  return filteredData.sort((a, b) => a.value - b.value);
+}
+
+function total(sortedData) {
+  return sortedData.reduce((sum, item) => sum + item.value, 0);
+}
+
+function average(filteredData) {
+  return sortedData(filteredData).length !== 0 ? total(sortedData(filteredData)) / sortedData(filteredData).length : 0;
+}
+
+//const count = 
 function processData(data) {
   let filteredData = [];
   for (let item of data) {
@@ -6,17 +19,11 @@ function processData(data) {
     }
   }
 
-  let sortedData = filteredData.sort((a, b) => a.value - b.value);
-
-  let total = sortedData.reduce((sum, item) => sum + item.value, 0);
-  let count = sortedData.length;
-  let average = count !== 0 ? total / count : 0;
-
   let report = {
-    total: total,
-    count: count,
-    average: average,
-    sortedData: sortedData,
+    total: total(sortedData(filteredData)),
+    count: sortedData(filteredData).length,
+    average: average(filteredData),
+    sortedData: sortedData(filteredData),
   };
 
   return report;

@@ -4,6 +4,7 @@ import { processData } from "../exercise/exercise1";
 
 describe("exercise1", () => {
   it("returns summary of all items greater than 10", () => {
+    console.log(processData(data));
     expect(processData(data)).toEqual({
       total: 70,
       count: 3,
