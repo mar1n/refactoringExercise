@@ -10,8 +10,7 @@ function average(filteredData) {
   return sortedData(filteredData).length !== 0 ? total(sortedData(filteredData)) / sortedData(filteredData).length : 0;
 }
 
-//const count = 
-function processData(data) {
+function filteredData(data) {
   let filteredData = [];
   for (let item of data) {
     if (item.value > 10) {
@@ -19,14 +18,16 @@ function processData(data) {
     }
   }
 
-  let report = {
-    total: total(sortedData(filteredData)),
-    count: sortedData(filteredData).length,
-    average: average(filteredData),
-    sortedData: sortedData(filteredData),
-  };
+  return filteredData;
+}
 
-  return report;
+function processData(data) {
+  return {
+    total: total(sortedData(filteredData(data))),
+    count: sortedData(filteredData(data)).length,
+    average: average(filteredData(data)),
+    sortedData: sortedData(filteredData(data)),
+  };
 }
 
 export { processData };
