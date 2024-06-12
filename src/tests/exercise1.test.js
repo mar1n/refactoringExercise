@@ -4,12 +4,14 @@ import { processData } from "../exercise/exercise1";
 
 describe("exercise1", () => {
   it("returns summary of all items greater than 10", () => {
-    console.log(processData(data));
-    expect(processData(data)).toEqual({
-      total: 70,
-      count: 3,
-      average: 23.333333333333332,
-      sortedData: [{ value: 15 }, { value: 25 }, { value: 30 }],
+    expect(processData(data, 10, "A")).toEqual({
+      total: 55,
+      count: 2,
+      average: 27.5,
+      sortedData: [
+        { value: 25, category: "A" },
+        { value: 30, category: "A" },
+      ],
     });
   });
 });
